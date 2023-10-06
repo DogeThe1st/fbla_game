@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwf8xd0qqv7vg"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_30cbn"]
+[ext_resource type="PackedScene" uid="uid://co4p4jx6rswgs" path="res://Player.tscn" id="1_dqlkb"]
+[ext_resource type="PackedScene" uid="uid://dyrev142x5xjo" path="res://generic wall.tscn" id="3_62vxg"]
+[ext_resource type="PackedScene" uid="uid://dfywchloiwvlc" path="res://Enemy.tscn" id="4_3vcgx"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_30cbn")
+
+[node name="Player" parent="." instance=ExtResource("1_dqlkb")]
+position = Vector2(540, 281)
+scale = Vector2(0.5, 0.5)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Wall" parent="." instance=ExtResource("3_62vxg")]
+position = Vector2(548, 370)
+scale = Vector2(8.08138, 1.5362)
+
+[node name="Enemy" parent="." instance=ExtResource("4_3vcgx")]
+position = Vector2(774, 263)
+scale = Vector2(0.5, 0.5)
+
+[node name="Wall2" parent="." instance=ExtResource("3_62vxg")]
+position = Vector2(1645, 154)
+scale = Vector2(20, 0.723)
+
+[connection signal="right_click" from="Player" to="." method="_on_player_right_click"]
+[connection signal="shoot" from="Player" to="." method="_on_player_shoot"]

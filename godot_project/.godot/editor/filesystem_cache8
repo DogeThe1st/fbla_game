@@ -1,0 +1,19 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1696556031
+bullet.png::CompressedTexture2D::2880342803974939609::1696507470::1696507470::1::::<><>::
+Camera2D.gd::GDScript::-1::1696550693::0::1::::<>Camera2D<>::
+Enemy.gd::GDScript::-1::1696555973::0::1::::<>CharacterBody2D<>::
+Enemy.gdshader::Shader::-1::1696505780::0::1::::<><>::
+Enemy.tscn::PackedScene::7561091066099547260::1696555983::0::1::::<><>::res://Enemy.gd
+generic wall.tscn::PackedScene::8879170501519295260::1696555983::0::1::::<><>::
+HENRY STICKMIN.png::CompressedTexture2D::5992250945906212954::1696556031::1696556031::1::::<><>::
+icon.svg::CompressedTexture2D::1615340778811018658::1696505780::1696505816::1::::<><>::
+Main.gd::GDScript::-1::1696505970::0::1::::<>Node2D<>::
+Main.tscn::PackedScene::8715783430846792504::1696555983::0::1::::<><>::res://Main.gd<>uid://co4p4jx6rswgs::::res://Player.tscn<>uid://dfywchloiwvlc::::res://Enemy.tscn<>uid://27hqv0y3dew6::::res://Untitled(2).png<>res://Camera2D.gd<>uid://dgg28150f2k81::::res://Untitled(1).png
+Player.gd::GDScript::-1::1696550534::0::1::::<>CharacterBody2D<>::
+Player.tscn::PackedScene::5816315185773729782::1696555983::0::1::::<><>::res://Player.gd<>uid://xaqorf8myqpe::::res://icon.svg
+projectile.gd::GDScript::-1::1696507768::0::1::::<>Area2D<>::
+projectile.tscn::PackedScene::6440890937069455091::1696555983::0::1::::<><>::res://projectile.gd<>uid://bhbi3b5aq6a0p::::res://bullet.png
+grass_floor.tscn::PackedScene::3019256218594390442::1696555983::0::1::::<><>::uid://dgg28150f2k81::::res://Untitled(1).png
+Untitled(1).png::CompressedTexture2D::7594481082530289644::1696553234::1696554077::1::::<><>::
+Untitled(2).png::CompressedTexture2D::1961613600747085107::1696555366::1696555366::1::::<><>::
