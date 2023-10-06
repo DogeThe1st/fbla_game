@@ -1,24 +1,81 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwf8xd0qqv7vg"]
+[gd_scene load_steps=10 format=3 uid="uid://dwf8xd0qqv7vg"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_30cbn"]
 [ext_resource type="PackedScene" uid="uid://co4p4jx6rswgs" path="res://Player.tscn" id="1_dqlkb"]
-[ext_resource type="PackedScene" uid="uid://dyrev142x5xjo" path="res://generic wall.tscn" id="3_62vxg"]
 [ext_resource type="PackedScene" uid="uid://dfywchloiwvlc" path="res://Enemy.tscn" id="4_3vcgx"]
+[ext_resource type="Texture2D" uid="uid://27hqv0y3dew6" path="res://Untitled(2).png" id="5_gba2h"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="5_qeca2"]
+[ext_resource type="Texture2D" uid="uid://dgg28150f2k81" path="res://Untitled(1).png" id="5_un40w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipawg"]
+size = Vector2(16382, 52)
+
+[sub_resource type="Gradient" id="Gradient_ebkob"]
+colors = PackedColorArray(0, 1, 1, 1, 0, 0.70866, 0.690215, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p7qbu"]
+gradient = SubResource("Gradient_ebkob")
+repeat = 2
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_30cbn")
 
 [node name="Player" parent="." instance=ExtResource("1_dqlkb")]
-position = Vector2(540, 281)
+z_index = 1
+position = Vector2(576, 324)
 scale = Vector2(0.5, 0.5)
-
-[node name="Wall" parent="." instance=ExtResource("3_62vxg")]
-position = Vector2(548, 370)
-scale = Vector2(8.08138, 1.5362)
+gravity = 1130
 
 [node name="Enemy" parent="." instance=ExtResource("4_3vcgx")]
-position = Vector2(774, 263)
+position = Vector2(242, 216)
 scale = Vector2(0.5, 0.5)
+
+[node name="Node2D" type="StaticBody2D" parent="."]
+position = Vector2(-2319, 433)
+collision_mask = 17
+
+[node name="Sprite2D" type="TextureRect" parent="Node2D"]
+offset_left = -43.0
+offset_top = -26.0
+offset_right = 179957.0
+offset_bottom = 590.0
+scale = Vector2(0.216, 0.239)
+size_flags_horizontal = 4
+texture = ExtResource("5_un40w")
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
+position = Vector2(8148, 6)
+shape = SubResource("RectangleShape2D_ipawg")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 253)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("5_qeca2")
+
+[node name="Marker2D" type="Marker2D" parent="Camera2D"]
+position = Vector2(-860, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Camera2D"]
+position = Vector2(860, 0)
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D"]
+offset_left = 1162.0
+offset_top = 916.0
+offset_right = 1202.0
+offset_bottom = 956.0
+scale = Vector2(-58.2464, -12.3333)
+texture = ExtResource("5_gba2h")
+
+[node name="TextureRect2" type="TextureRect" parent="Camera2D"]
+z_index = -1
+offset_left = 1212.0
+offset_top = -696.0
+offset_right = 1276.0
+offset_bottom = -632.0
+rotation = 1.57265
+scale = Vector2(25.5633, 38.0781)
+texture = SubResource("GradientTexture2D_p7qbu")
 
 [connection signal="right_click" from="Player" to="." method="_on_player_right_click"]
 [connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
