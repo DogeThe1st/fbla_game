@@ -1,7 +1,11 @@
-res://grass_floor.tscn
 res://Main.tscn
 res://Enemy.tscn
 res://Player.tscn
 res://projectile.tscn
 res://generic wall.tscn
+res://grass_floor.tscn
 res://Enemy.gd
+res://projectile.gd
+res://Player.gd
+res://Main.gd
+res://Camera2D.gd

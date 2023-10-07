@@ -13,5 +13,8 @@ script = ExtResource("1_ol1qg")
 scale = Vector2(0.0805478, 0.0468289)
 texture = ExtResource("2_4lbqj")
 
+[node name="BulletSpawn" type="Marker2D" parent="."]
+position = Vector2(41, -1)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_es68b")

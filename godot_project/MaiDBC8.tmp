@@ -27,7 +27,7 @@ scale = Vector2(0.5, 0.5)
 gravity = 1130
 
 [node name="Enemy" parent="." instance=ExtResource("4_3vcgx")]
-position = Vector2(487, 363)
+position = Vector2(266, 212)
 scale = Vector2(0.5, 0.5)
 
 [node name="Node2D" type="StaticBody2D" parent="."]
@@ -62,10 +62,10 @@ position = Vector2(400, 0)
 
 [node name="TextureRect" type="TextureRect" parent="Camera2D"]
 offset_left = 3564.71
-offset_top = 1232.0
+offset_top = 988.288
 offset_right = 3604.71
-offset_bottom = 1272.0
-scale = Vector2(-164.049, -17.3373)
+offset_bottom = 1028.29
+scale = Vector2(-164.049, -12.1373)
 texture = ExtResource("5_gba2h")
 
 [node name="TextureRect2" type="TextureRect" parent="Camera2D"]

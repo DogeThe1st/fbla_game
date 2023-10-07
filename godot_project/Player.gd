@@ -9,6 +9,7 @@ var target_velocity = Vector2.ZERO
 var health = 1
 var game = true
 var shifted = 0
+var side = "Friend"
 @export var move_speed = 305
 @export var gravity = 400
 @export var jump_force = -600
@@ -18,14 +19,14 @@ func _ready():
 	direction = Vector2.ZERO
 
 func _process(delta):
-	if health != 0 and game == true:
+	if health > 0 and game == true:
 		direction = Vector2.ZERO
 		if Input.is_action_pressed("left"):
 			direction.x -= 1
 		if Input.is_action_pressed("right"):
 			direction.x += 1
 		if Input.is_action_pressed("click"):
-			shoot.emit()
+			shoot.emit(self.name, get_global_mouse_position(), side)
 		if Input.is_action_pressed("right_click"):
 			right_click.emit()
 		if Input.is_action_pressed("shift"):
@@ -38,7 +39,18 @@ func _process(delta):
 		if is_on_floor():
 			if Input.is_action_pressed("up"):
 				target_velocity.y = jump_force
+			else:
+				target_velocity.y = 0
 		else:
 			target_velocity.y += gravity * delta
 		velocity = target_velocity
+		#print()
 		move_and_slide()
+
+
+func _on_bullet_detector_body_entered(body):
+	print(body)
+
+func alert_death(dmg):
+	#health -= dmg
+	print(health, dmg)

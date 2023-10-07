@@ -1,5 +1,9 @@
+Area2D
+WorldEnvironment
+MeshInstance3D
+VisibleOnScreenNotifier2D
+Marker2D
 TextureRect
 Camera3D
 Node3D
-Marker2D
 Camera2D

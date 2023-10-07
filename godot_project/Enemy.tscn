@@ -7,7 +7,7 @@ size = Vector2(92, 112)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_dj06g"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_hd1o2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -16,3 +16,6 @@ shape = SubResource("RectangleShape2D_es68b")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(92.75, 113)
 texture = SubResource("CanvasTexture_dj06g")
+
+[node name="BulletSpawn" type="Marker2D" parent="."]
+position = Vector2(0, 26)
