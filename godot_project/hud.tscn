@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://jay5sfluwwuj"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -65.0
+offset_top = -40.0
+offset_right = -25.0
+offset_bottom = -2.28882e-05
+scale = Vector2(51.7991, 29.5589)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 818.0
+offset_top = 585.0
+offset_right = 1068.0
+offset_bottom = 685.0
+scale = Vector2(0.998831, 1.02453)
+theme_override_font_sizes/font_size = 50
+text = "Quit
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 721.0
+offset_top = 65.0
+offset_right = 1165.0
+offset_bottom = 240.0
+theme_override_font_sizes/font_size = 126
+text = "Paused"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 818.0
+offset_top = 446.0
+offset_right = 1068.0
+offset_bottom = 546.0
+scale = Vector2(0.998831, 1.02453)
+theme_override_font_sizes/font_size = 50
+text = "Resume"

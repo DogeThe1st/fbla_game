@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bxcgdc41tgpci"]
+
+[node name="main menu" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(50.7914, 29.8751)
+color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 832.0
+offset_top = 612.0
+offset_right = 1082.0
+offset_bottom = 712.0
+scale = Vector2(0.998831, 1.02453)
+theme_override_font_sizes/font_size = 50
+text = "Quit
+"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 753.0
+offset_top = 22.0
+offset_right = 1197.0
+offset_bottom = 197.0
+theme_override_font_sizes/font_size = 126
+text = "Game
+"
+
+[node name="Button4" type="Button" parent="."]
+offset_left = 832.0
+offset_top = 407.0
+offset_right = 1082.0
+offset_bottom = 507.0
+scale = Vector2(0.998831, 1.02453)
+theme_override_font_sizes/font_size = 50
+text = "Play
+"

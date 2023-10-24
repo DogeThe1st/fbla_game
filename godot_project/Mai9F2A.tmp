@@ -1,0 +1,94 @@
+[gd_scene load_steps=11 format=3 uid="uid://dwf8xd0qqv7vg"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_30cbn"]
+[ext_resource type="PackedScene" uid="uid://co4p4jx6rswgs" path="res://Player.tscn" id="1_dqlkb"]
+[ext_resource type="PackedScene" uid="uid://dfywchloiwvlc" path="res://Enemy.tscn" id="4_3vcgx"]
+[ext_resource type="Texture2D" uid="uid://27hqv0y3dew6" path="res://Untitled(2).png" id="5_gba2h"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="5_qeca2"]
+[ext_resource type="Texture2D" uid="uid://dgg28150f2k81" path="res://Untitled(1).png" id="5_un40w"]
+[ext_resource type="PackedScene" uid="uid://jay5sfluwwuj" path="res://hud.tscn" id="7_3gtwt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipawg"]
+size = Vector2(38827, 147)
+
+[sub_resource type="Gradient" id="Gradient_hivrs"]
+colors = PackedColorArray(4.62055e-06, 0.723246, 0.868575, 1, 6.73831e-07, 0.790847, 0.784627, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0iu84"]
+gradient = SubResource("Gradient_hivrs")
+fill_to = Vector2(0, 1)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_30cbn")
+
+[node name="Player" parent="." instance=ExtResource("1_dqlkb")]
+z_index = 1
+position = Vector2(576, 324)
+scale = Vector2(0.5, 0.5)
+gravity = 1130
+
+[node name="Enemy" parent="." instance=ExtResource("4_3vcgx")]
+position = Vector2(487, 363)
+
+[node name="Node2D" type="StaticBody2D" parent="."]
+position = Vector2(-2319, 433)
+collision_mask = 17
+
+[node name="Sprite2D" type="TextureRect" parent="Node2D"]
+offset_left = -43.0
+offset_top = -26.0
+offset_right = 179957.0
+offset_bottom = 590.0
+scale = Vector2(0.216, 0.278999)
+size_flags_horizontal = 4
+texture = ExtResource("5_un40w")
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
+position = Vector2(19370.5, 47.5)
+shape = SubResource("RectangleShape2D_ipawg")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 253)
+scale = Vector2(0.5, 0.5)
+position_smoothing_enabled = true
+script = ExtResource("5_qeca2")
+
+[node name="Marker2D" type="Marker2D" parent="Camera2D"]
+position = Vector2(-400, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Camera2D"]
+position = Vector2(400, 0)
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D"]
+offset_left = 3564.71
+offset_top = 1232.0
+offset_right = 3604.71
+offset_bottom = 1272.0
+scale = Vector2(-164.049, -17.3373)
+texture = ExtResource("5_gba2h")
+
+[node name="TextureRect2" type="TextureRect" parent="Camera2D"]
+z_index = -1
+offset_left = 3562.71
+offset_top = 946.288
+offset_right = 3626.71
+offset_bottom = 1010.29
+scale = Vector2(-102.417, -41.5357)
+texture = SubResource("GradientTexture2D_0iu84")
+
+[node name="HUD" parent="." instance=ExtResource("7_3gtwt")]
+visible = false
+
+[node name="Panel" parent="HUD" index="0"]
+offset_left = -921.0
+offset_top = -600.0
+offset_right = -881.0
+offset_bottom = -560.0
+scale = Vector2(83.4837, 48.8427)
+
+[connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
+[connection signal="makebadguy" from="Camera2D" to="." method="_on_camera_2d_makebadguy"]
+[connection signal="pressed" from="HUD/Button" to="." method="_on_button_pressed"]
+
+[editable path="HUD"]

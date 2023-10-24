@@ -1,11 +1,13 @@
 res://Main.tscn
-res://Enemy.tscn
-res://Player.tscn
 res://projectile.tscn
-res://generic wall.tscn
-res://grass_floor.tscn
-res://Enemy.gd
-res://projectile.gd
+res://Player.tscn
+res://Enemy.tscn
+res://Level0.tscn
+res://Level1.tscn
+res://hud.tscn
+res://main_menu.tscn
 res://Player.gd
+res://projectile.gd
 res://Main.gd
-res://Camera2D.gd
+res://Enemy.gd
+res://EnemySpawn.gd

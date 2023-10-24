@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3gl8yywgiucv"]
+
+[ext_resource type="PackedScene" uid="uid://dfywchloiwvlc" path="res://Enemy.tscn" id="1_8ccsh"]
+[ext_resource type="Script" path="res://EnemySpawn.gd" id="1_yogal"]
+[ext_resource type="Texture2D" uid="uid://br6hp7uw5f3vo" path="res://tut2.png" id="2_vefvl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrc57"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_a0xye"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_yogal")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(820, 358)
+scale = Vector2(10.4293, 2.52711)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_qrc57")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(19.9849, 19.8352)
+texture = SubResource("PlaceholderTexture2D_a0xye")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1020, 421)
+scale = Vector2(10.4293, 2.52711)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_qrc57")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+scale = Vector2(19.9849, 19.8352)
+texture = SubResource("PlaceholderTexture2D_a0xye")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(748, 557)
+scale = Vector2(130.393, 1.55712)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("RectangleShape2D_qrc57")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+scale = Vector2(19.9849, 19.8352)
+texture = SubResource("PlaceholderTexture2D_a0xye")
+
+[node name="Enemy" parent="." instance=ExtResource("1_8ccsh")]
+position = Vector2(38, 292)
+
+[node name="Sprite2D2" type="TextureRect" parent="."]
+offset_left = 63.0938
+offset_top = 30.1353
+offset_right = 180063.0
+offset_bottom = 646.135
+scale = Vector2(0.00353248, 0.483132)
+size_flags_horizontal = 4
+texture = ExtResource("2_vefvl")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 107.0
+offset_top = 205.0
+offset_right = 551.0
+offset_bottom = 380.0
+scale = Vector2(0.106955, 0.0928761)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 126
+text = "press q to make more enemies!"
