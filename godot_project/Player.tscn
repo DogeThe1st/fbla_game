@@ -1,7 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://co4p4jx6rswgs"]
+[gd_scene load_steps=5 format=3 uid="uid://co4p4jx6rswgs"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_ol1qg"]
 [ext_resource type="Texture2D" uid="uid://crmxq6hxeud3w" path="res://HENRY STICKMIN.png" id="2_4lbqj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4cnar"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4lbqj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4lbqj")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_es68b"]
 size = Vector2(92, 112)
@@ -10,12 +29,24 @@ size = Vector2(92, 112)
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_ol1qg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.0805478, 0.0468289)
-texture = ExtResource("2_4lbqj")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.08137, 0.0466533)
+sprite_frames = SubResource("SpriteFrames_4cnar")
+animation = &"idle"
 
-[node name="BulletSpawn" type="Marker2D" parent="."]
+[node name="BulletDirRight" type="Marker2D" parent="."]
+position = Vector2(-82, 0)
+
+[node name="BulletSpawnRight" type="Marker2D" parent="."]
+position = Vector2(-41, 0)
+
+[node name="BulletDirLeft" type="Marker2D" parent="."]
+position = Vector2(82, -2)
+
+[node name="BulletSpawnLeft" type="Marker2D" parent="."]
 position = Vector2(41, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_es68b")
+
+[node name="Marker2D" type="Marker2D" parent="."]

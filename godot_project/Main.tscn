@@ -18,14 +18,11 @@ gravity = 1130
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 253)
 scale = Vector2(0.5, 0.5)
+limit_left = -536
+limit_right = 1920
 position_smoothing_enabled = true
+position_smoothing_speed = 20.0
 script = ExtResource("5_qeca2")
-
-[node name="Marker2D" type="Marker2D" parent="Camera2D"]
-position = Vector2(-400, 0)
-
-[node name="Marker2D2" type="Marker2D" parent="Camera2D"]
-position = Vector2(400, 0)
 
 [node name="main menu" parent="." instance=ExtResource("6_ttq74")]
 visible = false
@@ -35,6 +32,12 @@ visible = false
 
 [node name="Level0" parent="." instance=ExtResource("7_xia32")]
 position = Vector2(-507, 432)
+
+[node name="MaxLeft" type="Marker2D" parent="."]
+position = Vector2(-536, 0)
+
+[node name="MaxRight" type="Marker2D" parent="."]
+position = Vector2(1920, 0)
 
 [connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
 [connection signal="pressed" from="main menu/Button3" to="." method="_on_button_3_pressed"]

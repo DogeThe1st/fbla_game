@@ -13,6 +13,7 @@ var paused : bool = true
 var bullets : int = 5
 var weapon_type : int = 3
 var maxRounds : int = 5
+var bulletside = "Right"
 # 1 = Burst
 # 2 = Shotgun
 # 3 = Full Auto
@@ -58,7 +59,7 @@ func _process(delta):
 				fire_auto()
 		if Input.is_action_pressed("shift"):
 			shifted = 1.5
-			print(shifted)
+			print(bulletside)
 		else:
 			shifted = 1
 		direction = direction.normalized()
@@ -73,7 +74,14 @@ func _process(delta):
 		if is_on_ceiling():
 			target_velocity.y += 50
 		velocity = target_velocity
-		#print()
+		if velocity.x > 0 or velocity.x < 0:
+			get_node("AnimatedSprite2D").play("walk")
+		else:
+			get_node("AnimatedSprite2D").play("idle")
+		if direction.x < 0:
+			bulletside = "Right"
+		if direction.x > 0:
+			bulletside = "Left"
 		move_and_slide()
 
 func fire_burst():
@@ -82,19 +90,19 @@ func fire_burst():
 		var bulletrange1 = 0
 		var bulletrange2 = 0
 		await get_tree().create_timer(0.05).timeout
-		shoot.emit(self.name, get_global_mouse_position(), side, bullets, bulletspeed, bulletrange1, bulletrange2)
+		shoot.emit(self.name, get_node("BulletDir" + str(bulletside)).get_global_position(), side, bullets, bulletspeed, bulletrange1, bulletrange2, bulletside)
 
 func fire_shotgun():
 	var bulletspeed = 15
 	var bulletrange1 = 0.05
 	var bulletrange2 = -0.05
-	shoot.emit(self.name, get_global_mouse_position(), side, bullets, bulletspeed, bulletrange1, bulletrange2)
+	shoot.emit(self.name, get_node("BulletDir" + str(bulletside)).get_global_position(), side, bullets, bulletspeed, bulletrange1, bulletrange2, bulletside)
 
 func fire_auto():
 	var bulletspeed = 13
 	var bulletrange1 = 0.075
 	var bulletrange2 = -0.075
-	shoot.emit(self.name, get_global_mouse_position(), side, bullets, bulletspeed, bulletrange1, bulletrange2)
+	shoot.emit(self.name, get_node("BulletDir" + str(bulletside)).get_global_position(), side, bullets, bulletspeed, bulletrange1, bulletrange2, bulletside)
 
 func alert_death(dmg):
 	pass

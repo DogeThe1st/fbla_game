@@ -12,6 +12,7 @@ var bullets = 1
 var player
 var weapon_type : int = 2
 var maxRounds : int = 5
+var bulletside = "Right"
 @export var Main : Node2D
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -22,6 +23,10 @@ func _process(_delta):
 	game = Main.game
 	paused = Main.paused
 	if game == true and paused == false:
+		if player.global_position.x >= global_position.x:
+			bulletside = "Right"
+		else:
+			bulletside = "Left"
 		if weapon_type == 1:
 			bullets = 5
 			maxRounds = 5
@@ -39,7 +44,6 @@ func _process(_delta):
 		if not is_on_floor():
 			velocity.y += gravity
 		move_and_slide()
-	
 func alert_death(dmg):
 	health -= dmg
 
@@ -66,16 +70,16 @@ func fire_burst():
 		var bulletrange1 = 0
 		var bulletrange2 = 0
 		await get_tree().create_timer(0.05).timeout
-		Main.shoot(self.name, player.global_position, side, bullets, bulletspeed, bulletrange1, bulletrange2)
+		Main.shoot(self.name, get_node("BulletSpawn" + str(bulletside)).global_position, side, bullets, bulletspeed, bulletrange1, bulletrange2, bulletside)
 
 func fire_shotgun():
 	var bulletspeed = 15
 	var bulletrange1 = 0.05
 	var bulletrange2 = -0.05
-	Main.shoot(self.name, player.global_position, side, bullets, bulletspeed, bulletrange1, bulletrange2)
+	Main.shoot(self.name, get_node("BulletSpawn" + str(bulletside)).global_position, side, bullets, bulletspeed, bulletrange1, bulletrange2, bulletside)
 
 func fire_auto():
 	var bulletspeed = 13
 	var bulletrange1 = 0.075
 	var bulletrange2 = -0.075
-	Main.shoot(self.name, player.global_position, side, bullets, bulletspeed, bulletrange1, bulletrange2)
+	Main.shoot(self.name, get_node("BulletSpawn" + str(bulletside)).global_positisweaaon, side, bullets, bulletspeed, bulletrange1, bulletrange2, bulletside)

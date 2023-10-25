@@ -6,8 +6,6 @@ res://Level0.tscn
 res://Level1.tscn
 res://hud.tscn
 res://main_menu.tscn
-res://Player.gd
-res://projectile.gd
 res://Main.gd
+res://Player.gd
 res://Enemy.gd
-res://EnemySpawn.gd

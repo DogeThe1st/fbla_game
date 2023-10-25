@@ -13,17 +13,17 @@ var paused : bool = false
 var levelnum = 0
 var max_level = 1
 var main_menu : bool = true
-func _on_player_shoot(name, direction, side, bullets, speed, bulletrange1, bulletrange2):
-	shoot(name, direction, side, bullets, speed, bulletrange1, bulletrange2)
+func _on_player_shoot(name, direction, side, bullets, speed, bulletrange1, bulletrange2, bulletside):
+	shoot(name, direction, side, bullets, speed, bulletrange1, bulletrange2, bulletside)
 
-func shoot(name, direction, side, bullets, speed, bulletrange1, bulletrange2):
+func shoot(name, direction, side, bullets, speed, bulletrange1, bulletrange2, bulletside):
 	for x in range(bullets):
 		var bullet = bullet.instantiate()
 		add_child(bullet)
 		if side == "Player":
-			bullet.global_position = get_node(name + "/BulletSpawn").global_position
+			bullet.global_position = get_node(name + "/BulletSpawn" + bulletside).global_position
 		else:
-			bullet.global_position = get_node(("Level" + str(levelnum)) + "/" + name + "/BulletSpawn").global_position
+			bullet.global_position = get_node(("Level" + str(levelnum)) + "/" + name + "/Spawn").global_position
 		bullet.look_at(direction)
 		bullet.rotation = bullet.rotation + randf_range(bulletrange1, bulletrange2)
 		bullet.side = side
